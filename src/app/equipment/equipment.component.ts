@@ -40,13 +40,27 @@ export class EquipmentComponent implements OnInit {
       return false;
     }
    }
-   canAdd(item):boolean{
-    console.log(this.cargoHold.length)
-    console.log(typeof this.cargoHold.length)
-    if(this.cargoHold.length === this.maxItems || item.mass > this.remainingMass){
-        return true;
+  //  canAdd(item):boolean{
+  //   console.log(this.cargoHold.length)
+  //   console.log(typeof this.cargoHold.length)
+  //   if(this.cargoHold.length === this.maxItems || item.mass > this.remainingMass){
+  //       return true;
+  //   } else {
+  //     return false;
+  //   }
+  //  }
+  hasLessThanTwo(item):boolean{
+    let numOf: number = 0;
+    for(let i =0; i<this.cargoHold.length; i++){
+      if(this.cargoHold[i] === item){
+        numOf++
+      }
+    }
+  
+    if(numOf < 2){
+      return true
     } else {
       return false;
     }
-   }
+  }
 }
